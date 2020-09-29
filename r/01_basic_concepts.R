@@ -3,7 +3,8 @@
 ######################         01_basic_concepts       ####################
 ###########################################################################
 
-## Let's start with a black slate - Let's re-start the R session   <- CAREFUL!!! do it at your own risk!
+## Let's start with a black slate - Let's re-start the R session
+# CAREFUL!!! do it at your own risk!
 
 # Ctrl + Shift + Fn + F10  (PC / Linux)
 # Command + Shift + Fn+ F10 (Mac OS)
@@ -18,7 +19,8 @@ print(a)
 a
 
 
-# Right assignment. Less common, it can be convenient, but hard to locate in the code
+# Right assignment. 
+# Less common, it can be convenient, but hard to locate in the code
 
 5 -> b
 
@@ -74,11 +76,28 @@ sqrt(a)
 
 mean(a,b,c)
 
+## nesting functions. The "Russian doll"
+
+mean(a,b,c)
+
+sqrt(mean(a,b,c))
+
+exp(sqrt(mean(a,b,c)))
+
+round(exp(sqrt(mean(a,b,c))))
+
+
+## This can make code VERY Convoluted, and is one of the main
+## reasons why R can seem "Scary" to newcomers.
+## Worry not, thanks to the tidyverse, there is a better way.
+## stay tunned!
+
+
 
 # Packages ----------------------------------------------------------------
 
 
-# packages are groups of functions that are created and distributed for a speciffic purpuse
+# packages are groups of functions that are created for a specific purpose
 # They can contain data used to run examples of how to use the package
 
 # e.g. the {stats} package
@@ -86,4 +105,13 @@ mean(a,b,c)
 ?stats
 
 ?median()
+
+
+# Good package practice is to write them mostly in base R
+# if they, themselves, need other packages (dependencies)
+# then they are vulnerable to those other packages not being mantained/updated
+# now... some packages (i.e. Tidyverse family) should be safe enough
+# (they ensure backwards compatibility)
+
+# still, try to not over-use packages.
 

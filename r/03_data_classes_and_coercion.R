@@ -3,15 +3,17 @@
 ###################      03_Data_classes_and_coercion     #################
 ###########################################################################
 
-## Let's start with a black slate - Let's re-start the R session   <- CAREFUL!!! do it at your own risk!
+## Let's start with a black slate - Let's re-start the R session
+## CAREFUL!!! do it at your own risk!
 
 # Ctrl + Shift + Fn + F10  (PC / Linux)
 # Command + Shift + Fn+ F10 (Mac OS)
 
 
-# Data classess do not mix ------------------------------------------------
+# Data classes do not mix ------------------------------------------------
 
-
+a <- 3
+a
 gene <- "Gene X"
 gene
 
@@ -36,15 +38,16 @@ characters
 
 # now let's try to convert between classes and see what hapens
 
-as.character(numbers)   # Try to make the numeric vector "numbers" into characters. It works! because numbers are ALSO strings!
+as.character(numbers)   
 
-as.numeric(characters)   # Now try to turn "characters" into numeric. That doesnt quite work... what happned??
+# If we try to make the numeric vector "numbers" into characters. 
+# It works! because numbers are ALSO strings!
 
+as.numeric(characters)   
 
-
-as.factor(numbers)   
-
-as.factor(characters)
+# If we try to turn "characters" into numeric.
+# That doesnt quite work... what happned??
+# R tries! it does it best... but some things just can't be...
 
 
 
@@ -77,21 +80,32 @@ levels(factors)
 
 class(factors)
 
+# you can have factors that disnt show up in any sample
 
-# What would happen if i try to turn this vector into a numeric or a character vector??
+factors <- factor(c(10,10,10,20,20,20), levels = c("10", "20", "30"))
 
-as.character(factors)                # Ok, that seems to work
 
-as.numeric(factors)                  # That does not quite work! Even if the factors look like numbers, a factorial vector is not numbers!!
+# What would happen if i try to turn this vector into a numeric or a character??
 
-as.numeric(as.character(factors))    # But we can get to where we want to go we just need to be creative
+as.character(factors)                
+# Ok, that seems to work
+
+as.numeric(factors)                  
+# That does not quite work! 
+# Even if the factors look like numbers, a factorial vector is not numbers!!
+# it provides the ordinal number of each factor. KEEP IN MIND!
+
+as.numeric(as.character(factors))    
+# But we can get to where we want to go we just need to be creative
 
 
 
 # Can i add elements to a factors vector?
 
-c(factors,30) 
+factors
 
+length(factors)
 
-c(factors,as.factor(30))
-as.numeric(factor(c(as.character(factors),30)))
+factors[7] <- 30
+factors[8] <- 40
+

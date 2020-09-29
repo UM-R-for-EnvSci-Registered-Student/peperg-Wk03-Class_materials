@@ -3,17 +3,17 @@
 ###################             04_Useful_tools        ####################
 ###########################################################################
 
-## Let's start with a black slate - Let's re-start the R session   <- CAREFUL!!! do it at your own risk!
+## Let's start with a black slate - Let's re-start the R session
+## CAREFUL!!! do it at your own risk!
 
 # Ctrl + Shift + Fn + F10  (PC / Linux)
 # Command + Shift + Fn+ F10 (Mac OS)
 
 
-
 # Sequences and repetition -------------------------------------------------
 
 
-?seq()  # let's learn about the seq() fucntion
+?seq()  # let's learn about the seq() function
 
 d_1 <- 1:10
 d_1
