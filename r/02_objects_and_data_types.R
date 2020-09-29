@@ -120,6 +120,8 @@ attributes(test_vect_2)
 
 # accessing elements
 
+test_mat
+
 test_mat[1,2] 
 
 # on two dimensional objects, ROWS first and COLUMNS second. e.g. [ROW, COLUMN] 
@@ -127,9 +129,9 @@ test_mat[1,2]
 
 test_mat[2,1]
 
-test_mat[1,]  # you can call a whole row
+test_mat[1, ]  # you can call a whole row
 
-test_mat[,1]  # you can call a whole column
+test_mat[ ,1]  # you can call a whole column
 
 
 
@@ -148,14 +150,22 @@ test_mat
 
 test_mat["row_1", "col_a"]
 
-test_mat["row_1",]  
+test_mat["row_1", ]  
 # You still need to add the comma and the empty space for the other coordinate
 
-test_mat[,"col_a"]  
+test_mat[, "col_a"]  
 # You still need to add the comma and the empty space for the other coordinate
 
 
 
+vect_a <- seq(3:4)
+vect_b <- c(3,6)
+
+matrix(c(vect_a, vect_b), nrow = 2, ncol = 2)
+
+test_mat[3,2] <- 10
+
+test_mat
 
 ### NOTE: Matrices are used quite a bit for multivariate statistics (e.g. PCA).
 ## So it is worth familiarizing yourself with how to use them
@@ -175,7 +185,7 @@ test_mat[,"col_a"]
 test_df <- data.frame(var_1 = c(1, 2, 3, 4, 5, 6),
                       var_2 = c(7, 8, 9, 10, 11, 12),
                       var_3 = c("a", "b", "c", "d", "e", "f"),
-                      var_3 = c(TRUE, FALSE, FALSE, TRUE, TRUE, FALSE))  
+                      var_4 = c(TRUE, FALSE, FALSE, TRUE, TRUE, FALSE))  
 
 # you can specify the variable names right here!!
 
@@ -207,13 +217,13 @@ test_df$var_1   # There is a unique way of calling one variable (column) in df
 
 # but you can do it just like for matrices
 
-test_df[,1]          
+test_df[, 1]          
 
 # Equivalent to what we did before in matrix, 
 # but much easier to call things by their name 
 # (as long as you kept it short and neat!)
 
-test_df[,"var_1"]    # The "$var_1" approach is still simpler 
+test_df[, "var_1"]    # The "$var_1" approach is still simpler 
 
 
 # I do recommend the "$var_1" approach. 
@@ -229,7 +239,7 @@ test_df[,"var_1"][2]  # this is a bit more cumbersome
 # you can call by "position" like in matrices
 
 
-test_df[1,2] 
+test_df[1,2]
 
 
 ### NOTE: Tibbles, the Tidyverse version of a dataframe exist 
@@ -252,9 +262,9 @@ test_df[1,2]
 test_list <- list(test_vect, test_mat, test_df)
 
 
-test_list[[1]] # call the first element of the list (test_vect)
+test_list[[3]] # call the first element of the list (test_vect)
 
-test_list[1]   # Need the [[]]. 
+test_list[3]   # Need the [[]]. 
 
 # If you call it wit [] it access the first element, 
 # but the new object is still a list, harder to handle
@@ -271,8 +281,6 @@ test_list
 test_list[[3]]
 test_list[[3]]$var_3 # cal a variable in the third element of the list (test_df)
 test_list[[3]]$var_3[3] # third element on third variable of third object
-
-
 
 
 ### a bit of cleaning
